@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Card from "./Card/Card";
 import { fetchListOfData } from "./store/slices/fetchDataSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [textToCopy, setTextToCopy] = useState("Text to copy");
@@ -47,15 +48,24 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="container">
-        <ul className="cards-container">
-          {dataToDisplay.map((item, key) => (
-            <li key={key} className="card">
-              <Card item={item} handleCopyClick={handleCopyClick} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <BrowserRouter basename="/Contenterra">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="container">
+                <ul className="cards-container">
+                  {dataToDisplay.map((item, key) => (
+                    <li key={key} className="card">
+                      <Card item={item} handleCopyClick={handleCopyClick} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </React.Fragment>
   );
 }

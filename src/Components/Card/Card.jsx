@@ -1,6 +1,7 @@
 import React from "react";
+import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setExpandedCardId } from "../store/slices/expandedCardIdSlice";
+import { setExpandedCardId } from "../../store/slices/expandedCardIdSlice";
 
 const Card = ({ item, handleCopyClick }) => {
   const dispatch = useDispatch();

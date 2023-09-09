@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { useState } from "react";
-import Card from "./Card/Card";
+import Card from "./Components/Card/Card";
 import { fetchListOfData } from "./store/slices/fetchDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Loader from "./Components/Loader/Loader";
 
 function App() {
   const [textToCopy, setTextToCopy] = useState("Text to copy");
@@ -61,6 +62,8 @@ function App() {
                     </li>
                   ))}
                 </ul>
+
+                <Loader />
               </div>
             }
           />

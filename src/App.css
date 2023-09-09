@@ -1,0 +1,189 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  width: 90%;
+  
+  height: max-content;
+  margin: 2rem;
+  padding: 2rem;
+
+  list-style: none;
+  border-radius: 1rem;
+
+  background-color: rgb(123, 193, 255);
+}
+
+.card > #title {
+  font-family: "Arvo", serif;
+}
+
+.card > #details {
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  word-wrap: break-word;
+  word-break: keep-all;
+
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(22, 22, 22);
+}
+
+.card > #details > button {
+  float: right;
+
+  cursor: pointer;
+  color: navy;
+  padding: 5px;
+
+  font-weight: bold;
+  font-size: medium;
+
+  border-radius: 1rem;
+  background-color: skyblue;
+  font-family: "Arvo", serif;
+}
+
+.card > #details > .notify {
+  display: none;
+  color: navy;
+  padding: 10px;
+
+  position: absolute;
+  top: -10px;
+  right: 0;
+
+  font-weight: bold;
+  border-radius: 1rem;
+  background-color: yellow;
+  transition: all 0.5s;
+  animation: Popup 0.8s ease;
+}
+
+.card > #details > button:hover ~ .notify {
+  display: inline;
+}
+
+@keyframes Popup {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: inline;
+    background-color: yellow;
+  }
+}
+
+#readMore {
+  color: red;
+  cursor: pointer;
+
+  margin-left: 5px;
+}
+
+#label,
+#labelForUrl {
+  font-family: "Arvo", serif;
+}
+
+#label {
+  color: skyblue;
+}
+
+#labelForUrl {
+  color: red;
+  font-weight: bold;
+}
+
+.card > #url {
+  margin: 20px 0px;
+}
+
+.card > #url > a {
+  color: darkblue;
+  padding: 10px 0px;
+  text-decoration: none;
+
+  word-wrap: break-word;
+  word-break: keep-all;
+
+  font-family: "Roboto", sans-serif;
+  transition: all 0.5s;
+}
+
+.card > #url > a:hover {
+  color: red;
+}
+
+.card > #score {
+  display: inline;
+
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+
+  border-radius: 10px;
+  font-family: "Arvo", serif;
+  background-color: navy;
+}
+
+@media screen and (max-width: 600px) {
+  .card > #title {
+    font-size: large;
+  }
+
+  .card > #details {
+    word-spacing: 3px;
+    font-size: smaller;
+  }
+
+  .card > #details > button {
+    font-size: small;
+  }
+
+  .card > #url > a {
+    font-size: smaller;
+  }
+
+  .card > #score {
+    padding: 7px;
+    font-size: small;
+  }
+}
+@media screen and (max-width: 450px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .card > #details {
+    color: white;
+    padding: 1.5rem;
+  }
+
+  .card > #details > .notify {
+    top: -20px;
+  }
+}
